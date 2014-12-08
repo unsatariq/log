@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="FdzNoueQrMBCxPG6iy1pnN4/hUflqSPcLtLnbT/iyJI=" name="csrf-token" />
+<link href='/assets/favicon-7270767b2a9e9fff880aa5de378ca791.png' rel='icon' type='image/png'>
+<link href='/assets/favicon-7270767b2a9e9fff880aa5de378ca791.png' rel='apple-touch-icon' type='image/png'>
+<link href="/assets/application-53bc8543bea781102afa5349c3930e97.css" media="screen" rel="stylesheet" type="text/css" />
+<script src="/assets/application-ef86cb24e4889326d0d862b3a67c3962.js" type="text/javascript"></script>
+<script type="text/javascript">
+     window.onload = function() {  
+		  document.getElementById("div2").style.display = "none";
+		  }
+</script>
+</head>
+<body>
+<title>Logistics Management System </title>
+
+<form action="page1.php" method="post">
+
+<div id='div1'>
+<div id='content'>
+<div class='container'>
+<div class='span6 offset3 form-box'>
+<h1 class='heading'>Create Trip (You have 3 mins to fill the form)</h1>
+<script>
+     function showhideDiv1()
+     {
+	       document.getElementById("div2").style.display = "block";
+         document.getElementById("div1").style.display = "none";
+		 
+		    
+    }
+	setTimeout(showhideDiv1, 30000);
+	
+</script>
+
+<div class='control-group'>
+<label class="control-label" for="ID">Driver ID</label>
+<div class='controls'>
+<input id="id" name="ID" size="30" type="text"  />
+<p class='help-block'>6 digit</p>
+</div>
+</div>
+<div class='control-group'>
+<label class="control-label" for="ID">Income</label>
+<div class='controls'>
+<input id="inc" name="ID" size="30" type="text"  />
+<p class='help-block'>Income given for trip by LMC</p>
+</div>
+</div>
+<div class='control-group'>
+<label class="control-label"  for="commodityname">Commodity Name</label>
+</div>
+<div class='controls'>
+<select id="cn" name="commodityname"><option value="NONE">
+<option value="AUD">Clothing</option>
+<option value="CAD">Food </option>
+<option value="EUR">Electronics </option>
+<option value="GBP">Fragile items</option>
+<option value="JPY">Liquids</option>
+<option value="USD">Medicines</option></select></option>
+<p class='help-block'>Note: Fragile items are explosives and demanding extra care </p>
+</div>
+<div class='control-group'>
+<label class="control-label" for="commodityweight">Commodity Weight</label>
+<div class='controls'>
+<input id="cw" name="commodityweight" size="30" type="tel" value="0.00" />
+<p class='help-block'>Note: 2 digit in kg. Don't write kg with value. </p>
+</div>
+</div>
+<div class='control-group'>
+<label class="control-label" for="destination">Destination </label>
+<div class='controls'>
+<input id="des" name="destination" size="30" type="tel" value="Address" /> 
+<p class='help-block'>Note: For example city name</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id='div2' display:none>
+
+<script>
+function getTimeStamp() {
+       var now = new Date();
+       return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                     + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                     .getSeconds()) : (now.getSeconds())));
+}
+
+</script>
+<title>Trip Screen</title>
+<div id='content'>
+<div class='container'>
+<div class='span6 offset3 form-box'>
+<h1 class='heading'>
+Use this screen throughout the trip :
+</h1>
+<p class='help-block'>Updated Coordinates in 10 mins </p>
+<p id="demo"></p>
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;	
+}
+setTimeout(getLocation, 1000);
+
+</script>
+<form>
+  <button type="button" id="st" onclick="this.form.stimeField.value=getTimeStamp()">Start Time</button>
+  <input type="text" name="stimeField" size="11"></option> 
+</form>
+<div id="reloaded">
+<div class='control-group'>
+<label class="control-label" for="ea">Expense amount</label>
+<div class='controls'>
+<input id="budget_name" name="ea" size="30" type="text"  /></option>
+<p class='help-block'>Tip: Refresh page to add more expenses</p>
+</div>
+</div>
+<form>
+  <button type="button" id="ct" onclick="this.form.ctimeField.value=getTimeStamp()">Current Time</button>
+  <input type="text" name="ctimeField" size="11"></option>
+</form>
+<div>
+<label class="control-label" for="e">Expense Type</label>
+<div class='controls'>
+<select id="etype" name="ety"><option value="NONE"></option>
+<option value="AUD">Toll Tax</option>
+<option value="CAD">Meals </option>
+<option value="EUR">Fuel</option>
+<option value="GBP">Medicines</option>
+<option value="JPY">Maintenance</option>
+<option value="USD">Chalan</option></select></option>
+<p class='help-block'>Select Carefully </p>
+<button type="button" id="et" onclick="reload()">Enter to add more expenses</button>
+</div>
+</div>
+
+</div>
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+function reload() {
+$( "#reloaded" ).load( "amazing.html #reloaded" );
+}
+</script>
+
+</div>
+
+<form>
+<p class='help-block'>WARNING: ONLY PUSH THIS BUTTON AT THE END OF TRIP</p>
+  <button type="button" id="et" onclick="this.form.etimeField.value=getTimeStamp()">End Time</button>
+  <input type="text" name="etimeField" size="11"></option>
+</form>
+<td colspan="2" align="center">
+                <input type="submit"/>
+    </td>
+
+
+</div>
+</div>
+</div>
+
+</div>
+
+</form>
+<script>
+//localStorage
+function local(){
+
+if (typeof(Storage) != "undefined") {
+ $Driver_ID= document.getElementById("id").innerHTML;
+  $Income= document.getElementById("inc").innerHTML;
+ $commodity_name= document.getElementById("cn").innerHTML; 
+ $commodity_weight= document.getElementById("cw").innerHTML;
+ $Destination=document.getElementById("des").innerHTML;
+ 
+  $expense_amt=document.getElementById("ea").innerHTML; 
+  $expense_type=document.getElementById("etype").innerHTML;
+    // Store
+    localStorage.setItem("ID", $Driver_ID);
+	localStorage.setItem("income", $Income);
+	localStorage.setItem("commodity_name, $commodity_name);
+	localStorage.setItem("commodity_weight", $commodity_weight);
+	localStorage.setItem("destination", $Destination);
+	localStorage.setItem("expense_amt",  $expense_amt);
+	localStorage.setItem("expense_type", $expense_type);
+   }
+  
+   }
+   
+   setTimeout(local, 100);
+   
+</script>
+</body>
+</html>

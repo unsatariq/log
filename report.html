@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body style="background-image:url('truck.png'); font-size:15pt;" >
+
+<p><b>Fleet Management System<b> <br></br></p>
+<p>Select the report type</p>
+<form action="dbaccess.php" method="post">
+<div class='control-group'>
+
+<label class="control-label" for="report_type">REPORT TYPE</label>
+<div class='controls'>
+<select id="report_type" name="report_type"><option value="NONE">select</option>
+<option value="Clothes">Clothes &mdash; </option>
+<option value="Medicine">Medicine &mdash; </option>
+<option value="Fragile">Fragile &mdash; </option>
+<option value="Liquids">Liquids &mdash; </option>
+<option value="Electronics">Electronics &mdash; </option>
+<option value="Other">Other &mdash; </option>
+<option value="food items">food items &mdash; </option></select>
+</div>
+</div>
+
+
+<div class='control-group'>
+
+<label class="control-label" for="report_cat">REPORT CATEGORY</label>
+<div class='controls'>
+<select id="report_cat" name="report_cat"><option value="NONE">select</option>
+<option value="Once">Once &mdash; </option>
+<option value="Weekly">Weekly &mdash; </option>
+<option value="Fortnightly">Fortnightly &mdash; </option>
+<option value="Monthly ">Monthly &mdash; </option>
+<option value="Yearly">Yearly &mdash; </option></select>
+</div>
+</div>
+
+
+
+
+    <label for="cnic">Press the button below to get report :</label>
+   
+    <input type="submit" class="button" name="select" value="Get Report" />
+	
+</form>
+</body>
+</html>
